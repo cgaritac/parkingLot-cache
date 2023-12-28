@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Proyecto_1.Models.Parqueo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-align:center">INFORMACIÓN DEL PARQUEO</h1>
+
+<p>
+    <button onclick="location.href='@Url.Action("Create")'" class="btn-primary">Agregar Parqueo</button> <br>
+    <text style="font-size: 12px; color: lightslategrey;">*Solamente se puede agregar 1 parqueo</text>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadVehiculosMax)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraApertura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraCierre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TarifaHora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TarifaMedia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadVehiculosMax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraApertura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraCierre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TarifaHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TarifaMedia)
+            </td>
+            <td>
+                @Html.ActionLink("Actualizar", "Edit", new { id=item.Id }) 
+                <br>
+                @Html.ActionLink("Eliminar", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
